@@ -1,4 +1,4 @@
-# SaToken-Vue3
+# SaToken-Vue3快速启动
 
 [![Vue.js](https://img.shields.io/badge/Vue.js-4.1-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
@@ -6,6 +6,7 @@
 [![MyBatis-Plus](https://img.shields.io/badge/MyBatis--Plus-3.5.3-red?style=flat-square)](https://baomidou.com/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.1.4-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.3-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-SaToken--FastStart-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Guducat/SaToken-FastStart)
 
 ## 项目简介
 
@@ -127,27 +128,10 @@ SaToken-Vue3/
 └── readme.md              # 项目说明
 ```
 
-## 技术栈
-
-### 后端
-
-- Spring Boot 3.1.5
-- Sa-Token 1.34.0
-- MyBatis-Plus 3.5.3
-- MySQL 8.0 / PostgreSQL 12+
-
-### 前端
-
-- Vue 3.3.4
-- Vue Router 4.2.4
-- TailwindCSS 3.3.3
-- Headless UI 1.7.16
-- Heroicons 2.0.18
-
 ## 贡献指南
 
-欢迎提交 Issue 或 Pull Request。
+欢迎提交 [Issue](https://github.com/Guducat/SaToken-FastStart/issues) 或 [Pull Request](https://github.com/Guducat/SaToken-FastStart/pulls),让我们一起改进此快速启动项目。
 
 ## 许可证
 
-[MIT License](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat)](https://opensource.org/licenses/MIT)
