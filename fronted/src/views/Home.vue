@@ -16,14 +16,14 @@ const mobileMenuOpen = ref(false)
 // 导航菜单
 const publicNavigation = [
   { name: '首页', href: '/' },
-  { name: 'GitHub', href: 'https://github.com/Guducat/SaToken-Vue3', target: '_blank' },
+  { name: 'GitHub', href: 'https://github.com/Guducat/SaToken-FastStart', target: '_blank' },
 ]
 
 const privateNavigation = [
   ...publicNavigation,
   { name: '更新日志', href: '#changelog' },
   { name: '社区互动', href: '#community' },
-  { name: '提交 Issue', href: 'https://github.com/Guducat/SaToken-Vue3/issues', target: '_blank' },
+  { name: '提交 Issue', href: 'https://github.com/Guducat/SaToken-FastStart/issues', target: '_blank' },
 ]
 
 // 根据登录状态选择导航菜单
