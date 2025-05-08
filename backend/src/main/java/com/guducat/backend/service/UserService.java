@@ -241,4 +241,31 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         resetTokens.remove(userId);
         tokenCreationTimes.remove(userId);
     }
+
+    /**
+     * 注销用户账户
+     * <p>
+     * 此方法将删除用户账户。操作不可逆，请谨慎使用。
+     * </p>
+     *
+     * @param userId 用户ID
+     * @return 注销是否成功
+     */
+    public boolean deleteAccount(Long userId) {
+        // 获取用户
+        User user = getById(userId);
+        if (user == null) {
+            return false;
+        }
+
+        // 执行删除操作
+        boolean result = removeById(userId);
+
+        // 如果删除成功，注销当前登录状态
+        if (result) {
+            StpUtil.logout(userId);
+        }
+
+        return result;
+    }
 }

@@ -81,5 +81,10 @@ export default {
         token // 添加验证令牌
       }
     });
+  },
+
+  // 注销账户
+  deleteAccount() {
+    return api.get('/user/deleteAccount');
   }
 };

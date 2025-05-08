@@ -70,7 +70,7 @@ const saveUserInfo = async () => {
       email: editForm.email,
       avatarUrl: editForm.avatarUrl
     })
-    
+
     if (response.code === 200) {
       // 更新成功，刷新用户信息
       await fetchUserInfo()
@@ -97,7 +97,7 @@ const logout = async () => {
   localStorage.removeItem('token')
   localStorage.removeItem('username')
   localStorage.removeItem('isAdmin')
-  
+
   // 跳转到首页
   router.push('/')
 }
@@ -106,7 +106,7 @@ const logout = async () => {
 <template>
   <div class="bg-white">
     <AppHeader />
-    
+
     <div class="flex min-h-screen flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div class="sm:mx-auto sm:w-full sm:max-w-lg">
         <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">个人中心</h2>
@@ -130,8 +130,8 @@ const logout = async () => {
               <h3 class="text-lg leading-6 font-medium text-gray-900">用户信息</h3>
               <p class="mt-1 max-w-2xl text-sm text-gray-500">个人账号详细信息</p>
             </div>
-            <button 
-              @click="startEditing" 
+            <button
+              @click="startEditing"
               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
               编辑信息
@@ -154,8 +154,8 @@ const logout = async () => {
               <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt class="text-sm font-medium text-gray-500">角色</dt>
                 <dd class="mt-1 text-sm sm:mt-0 sm:col-span-2">
-                  <span 
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium" 
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium"
                     :class="userInfo.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'"
                   >
                     {{ userInfo.role === 'admin' ? '管理员' : '普通用户' }}
@@ -166,9 +166,9 @@ const logout = async () => {
                 <dt class="text-sm font-medium text-gray-500">头像</dt>
                 <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                   <div v-if="userInfo.avatarUrl" class="flex items-center">
-                    <img 
-                      :src="userInfo.avatarUrl" 
-                      alt="用户头像" 
+                    <img
+                      :src="userInfo.avatarUrl"
+                      alt="用户头像"
                       class="h-16 w-16 rounded-full object-cover border-2 border-gray-200"
                     />
                     <span class="ml-3 text-xs text-gray-500 break-all">{{ userInfo.avatarUrl }}</span>
@@ -178,19 +178,33 @@ const logout = async () => {
               </div>
             </dl>
           </div>
-          <div class="px-4 py-5 sm:px-6 flex justify-center space-x-4">
-            <button 
-              @click="logout" 
-              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-            >
-              退出登录
-            </button>
-            <router-link 
-              to="/" 
-              class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              返回首页
-            </router-link>
+          <div class="px-4 py-5 sm:px-6 flex flex-col space-y-4">
+            <div class="flex justify-center space-x-4">
+              <button
+                @click="logout"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                退出登录
+              </button>
+              <router-link
+                to="/"
+                class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              >
+                返回首页
+              </router-link>
+            </div>
+
+            <div class="border-t border-gray-200 pt-4">
+              <div class="flex justify-center">
+                <router-link
+                  to="/delete-account"
+                  class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                >
+                  注销账户
+                </router-link>
+              </div>
+              <p class="text-xs text-center text-gray-500 mt-2">注意：账户注销后将无法恢复</p>
+            </div>
           </div>
         </div>
 
@@ -205,11 +219,11 @@ const logout = async () => {
               <div>
                 <label for="nickname" class="block text-sm font-medium text-gray-700">昵称</label>
                 <div class="mt-1">
-                  <input 
-                    id="nickname" 
-                    name="nickname" 
-                    type="text" 
-                    v-model="editForm.nickname" 
+                  <input
+                    id="nickname"
+                    name="nickname"
+                    type="text"
+                    v-model="editForm.nickname"
                     placeholder="请输入昵称"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3 border"
                   />
@@ -219,11 +233,11 @@ const logout = async () => {
               <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">邮箱</label>
                 <div class="mt-1">
-                  <input 
-                    id="email" 
-                    name="email" 
-                    type="email" 
-                    v-model="editForm.email" 
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    v-model="editForm.email"
                     placeholder="请输入邮箱"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3 border"
                   />
@@ -233,11 +247,11 @@ const logout = async () => {
               <div>
                 <label for="avatarUrl" class="block text-sm font-medium text-gray-700">头像URL</label>
                 <div class="mt-1">
-                  <input 
-                    id="avatarUrl" 
-                    name="avatarUrl" 
-                    type="url" 
-                    v-model="editForm.avatarUrl" 
+                  <input
+                    id="avatarUrl"
+                    name="avatarUrl"
+                    type="url"
+                    v-model="editForm.avatarUrl"
                     placeholder="请输入头像URL"
                     class="block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3 border"
                   />
@@ -245,15 +259,15 @@ const logout = async () => {
               </div>
 
               <div class="flex justify-end space-x-3">
-                <button 
-                  type="button" 
-                  @click="cancelEditing" 
+                <button
+                  type="button"
+                  @click="cancelEditing"
                   class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   取消
                 </button>
-                <button 
-                  type="submit" 
+                <button
+                  type="submit"
                   class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                 >
                   保存

@@ -37,6 +37,12 @@ const routes = [
     path: '/forgot-password',
     name: 'ForgotPassword',
     component: () => import('../views/ForgotPassword.vue')
+  },
+  {
+    path: '/delete-account',
+    name: 'DeleteAccount',
+    component: () => import('../views/DeleteAccount.vue'),
+    meta: { requiresAuth: true } // 需要登录才能访问
   }
 ]
 

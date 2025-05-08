@@ -24,7 +24,8 @@ public class SaTokenConfig implements WebMvcConfigurer {
             SaRouter.match("/user/getInfo", r -> StpUtil.checkLogin());
             SaRouter.match("/user/updateInfo", r -> StpUtil.checkLogin());
             SaRouter.match("/user/isAdmin", r -> StpUtil.checkLogin());
-            
+            SaRouter.match("/user/deleteAccount", r -> StpUtil.checkLogin());
+
             // 管理员接口
             SaRouter.match("/admin/**", r -> {
                 StpUtil.checkLogin();

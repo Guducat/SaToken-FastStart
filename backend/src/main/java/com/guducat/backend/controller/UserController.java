@@ -246,5 +246,34 @@ public class UserController {
             return SaResult.error("密码重置失败");
         }
     }
+
+    /**
+     * 注销当前登录用户账户。
+     * <p>
+     * 此操作将永久删除用户账户，操作不可逆，请谨慎使用。
+     * 前端需要进行三次确认才能调用此接口。
+     * </p>
+     *
+     * @return 注销结果
+     */
+    @RequestMapping("deleteAccount")
+    public SaResult deleteAccount() {
+        // 获取当前登录用户ID，如果未登录则返回错误
+        Object loginId = StpUtil.getLoginId(-1);
+        if (loginId.equals(-1)) {
+            return SaResult.error("用户未登录");
+        }
+
+        Long userId = Long.parseLong(loginId.toString());
+
+        // 执行账户注销
+        boolean success = userService.deleteAccount(userId);
+
+        if (success) {
+            return SaResult.ok("账户已成功注销");
+        } else {
+            return SaResult.error("账户注销失败");
+        }
+    }
 }
 
