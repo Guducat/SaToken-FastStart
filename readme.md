@@ -44,6 +44,11 @@
   - 使用 MyBatis-Plus 简化数据库操作
   - RESTful API 设计
   - Sa-Token 集成，提供安全认证机制
+## 项目预览
+
+![预览图1](assets/preview1.png)
+![预览图2](assets/preview2.png)
+![预览图3](assets/preview3.png)
 
 ## 快速开始
 
@@ -158,7 +163,9 @@ SaToken-Vue3/
 └── readme.md              # 项目说明
 ```
 
-## 贡献指南
+## 其他
+
+**声明** 本项目使用了大语言模型辅助编码，在 *Claude3.7Sonnet* 以及 *Gemini 2.5Pro 05-06* 的帮助下一些隐形BUG得以解决。
 
 欢迎提交 [Issue](https://github.com/Guducat/SaToken-FastStart/issues) 或 [Pull Request](https://github.com/Guducat/SaToken-FastStart/pulls),让我们一起改进此模板！
 
