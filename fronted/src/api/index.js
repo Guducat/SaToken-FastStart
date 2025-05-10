@@ -26,10 +26,28 @@ api.interceptors.request.use(
 // 响应拦截器 - 处理错误
 api.interceptors.response.use(
   response => {
+    // 对响应数据做点什么
     return response.data;
   },
   error => {
-    console.error('API Error:', error);
+    // 对响应错误做点什么
+    if (error.response) {
+      const { status, data } = error.response;
+      // 检查是否是 token 无效的特定错误
+      // 后端返回的是HTML错误页面，所以检查 data 字符串
+      if (status === 500 && typeof data === 'string' &&
+          (data.includes('cn.dev33.satoken.exception.NotLoginException') || data.includes('token 无效'))) {
+        console.warn('Token invalid or expired, redirecting to login.');
+        localStorage.removeItem('token');
+        // 假设登录页路由为 /login，如果不是请修改
+        // 使用 window.location.replace 更适合跳转，因为它不会在历史记录中留下当前页面
+        window.location.replace('/login');
+        // 返回一个永远不会 resolve 的 Promise，以阻止后续的 .catch 处理
+        return new Promise(() => {});
+      }
+    }
+    // 对于其他错误，正常拒绝
+    console.error('API Error:', error.message || error); // 打印更简洁的错误信息
     return Promise.reject(error);
   }
 );

@@ -1,9 +1,16 @@
 <script setup>
 import { computed } from 'vue'
+import { useRouter } from 'vue-router' // 导入 useRouter
 import AppHeader from '../components/AppHeader.vue'
 
 // 获取当前登录用户的用户名
 const username = computed(() => localStorage.getItem('username') || '')
+
+const router = useRouter() // 获取 router 实例
+
+const goBack = () => {
+  router.go(-1) // 返回上一页
+}
 </script>
 
 <template>
@@ -29,13 +36,19 @@ const username = computed(() => localStorage.getItem('username') || '')
               <p>用户名: {{ username }}</p>
             </div>
 
-            <div class="mt-6 flex justify-center">
+            <div class="mt-6 flex justify-center space-x-4">
               <router-link
                 to="/"
                 class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 返回首页
               </router-link>
+              <button
+                @click="goBack"
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+              >
+                返回上一页
+              </button>
             </div>
           </div>
         </div>

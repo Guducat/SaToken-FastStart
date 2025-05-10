@@ -1,5 +1,6 @@
-# SaToken-Vue3快速启动
+# SaToken-Vue3快速启动项目模板
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Vue.js](https://img.shields.io/badge/Vue.js-4.1-4FC08D?style=flat-square&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.4.5-6DB33F?style=flat-square&logo=spring-boot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Sa-Token](https://img.shields.io/badge/Sa--Token-1.42.0-blue?style=flat-square)](https://sa-token.dev33.cn/)
@@ -10,27 +11,56 @@
 
 ## 项目简介
 
-本项目是以 Spring Boot 3 + Vue 3 为技术栈，使用 MySQL/PostgreSQL 数据库集成 MyBatis-Plus 与 Sa-Token，旨在提供一个轻量化的前后端分离登录认证框架。
-前端使用 TailwindCSS 和 Headless UI 构建现代化的用户界面。
+本项目是一个基于 Spring Boot 3 和 Vue 3 技术栈的全栈快速启动模板。后端采用 Java，集成 Sa-Token 进行认证授权，MyBatis-Plus 操作数据库（支持 MySQL/PostgreSQL）。前端使用 Vite 构建，采用 TailwindCSS 和 Headless UI 设计现代化用户界面。
+该模板旨在提供一个包含用户管理、权限控制、登录注册、密码找回等核心功能的轻量级前后端分离解决方案。
 
-前端仅供功能测试，功能缺失且简陋，实际开发请勿使用！
+前端界面主要用于功能演示，实际项目中需要根据需求进行替换和扩展。
 
 ### 功能特点
 
-- ✅ 用户认证与授权（Sa-Token）
-- ✅ 用户注册与登录（支持用户名或邮箱登录）
-- ✅ 用户信息管理（个人信息编辑）
-- ✅ 角色权限控制（管理员与普通用户）
-- ✅ 响应式设计（支持移动端和桌面端）
-- ✅ 组件化架构（头部、页脚等独立组件）
+- ✅ **用户管理模块 (后端 & 前端)**
+  - 简易用户注册功能 (支持用户名、邮箱)
+  - 简易用户登录功能 (支持用户名、邮箱)
+  - 获取用户信息
+  - 更新用户信息 (昵称、邮箱、头像)
+  - 简易密码找回功能 (通过用户名和邮箱验证身份，重置密码)
+  - 注销账户
+  - 查询登录状态
+- ✅ **管理员模块 (后端 & 前端)**
+  - 查看所有用户列表
+  - 查看单个用户信息
+  - 删除用户
+- ✅ **权限控制 (Sa-Token)**
+  - 基于角色的访问控制 (管理员、普通用户)
+  - 接口权限校验
+- ✅ **前端特性**
+  - 基于 Vue 3 和 Vite 构建
+  - 使用 TailwindCSS 和 Headless UI 实现现代化界面
+  - 响应式设计，适配不同设备
+  - 包含登录、注册、用户中心、管理员控制台等核心页面
+  - 模块化组件 (页头、页脚等)
+- ✅ **后端特性**
+  - 基于 Spring Boot 3 构建
+  - 使用 MyBatis-Plus 简化数据库操作
+  - RESTful API 设计
+  - Sa-Token 集成，提供安全认证机制
 
 ## 快速开始
 
 ### 环境要求
 
-- JDK 17+
-- Node.js 16+
-- MySQL 8.0+ 或 PostgreSQL 12+ 等主流数据库（需要自行修改配置）
+- **后端:**
+  - JDK 17+ (项目配置为 Java 17)
+  - Maven 3.6+ (用于构建后端项目)
+  - Spring Boot 3.4.5
+- **前端:**
+  - Node.js 18+ 
+  - pnpm/npm/yarn 
+  - Vue 3.5.13
+  - Vite 6.3.1
+  - TailwindCSS 4.1.4
+- **数据库:**
+  - MySQL 8.0+ 或 PostgreSQL 12+ (或其他兼容的数据库，按需调整 `pom.xml` 和 `application.properties` 中的依赖和配置)
 
 ### 数据库配置
 
@@ -130,7 +160,7 @@ SaToken-Vue3/
 
 ## 贡献指南
 
-欢迎提交 [Issue](https://github.com/Guducat/SaToken-FastStart/issues) 或 [Pull Request](https://github.com/Guducat/SaToken-FastStart/pulls),让我们一起改进此快速启动项目。
+欢迎提交 [Issue](https://github.com/Guducat/SaToken-FastStart/issues) 或 [Pull Request](https://github.com/Guducat/SaToken-FastStart/pulls),让我们一起改进此模板！
 
 ## 许可证
 
